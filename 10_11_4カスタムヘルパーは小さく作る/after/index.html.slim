@@ -1,0 +1,6 @@
+# app/views/comments/index.html.slim
+
+- @comments.each do |comment|
+  div
+   p = comment.body
+   = button_tag '更新', class: button_classes(:blue), disabled: comment.locked?
