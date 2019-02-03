@@ -3,7 +3,7 @@
 そのための在庫管理アプリケーションを独立したサーバで運用している。
 在庫管理アプリケーションはAPIを提供していて（以下、在庫管理APIと呼ぶ）、
 各サービスはそのAPIを利用して在庫状態を確認したり更新したりする。
-APIはJSOｎ形式でデータを送信するものとする。
+APIはJSON形式でデータを送信するものとする。
 
 この在庫管理APIを利用して入庫処理を行う画面を実装してみよう。
 この画面には、以下の仕様があるとする
@@ -40,7 +40,7 @@ class StocksController < ApplicationController
       product_code: stock_params[:product_code],
       quantity: stock_params[:quantity],
       verified: stock_params[:verified] == "1"
-    }.to_jason  # <- ~2
+    }.to_json  # <- ~2
 
     begin   # <- 3~
       response = Net::HTTP.post(
